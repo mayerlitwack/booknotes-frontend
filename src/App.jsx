@@ -1,7 +1,7 @@
-﻿import { useState } from "react";
-import BookList from "./components/BookList";
-import NoteList from "./components/NoteList";
-import Search from "./components/Search";
+﻿import React, { useState } from "react";
+import BookList from "./components/Booklists";
+import NoteList from "./components/Notelist";
+import Search from "./components/search";
 
 function App() {
   const [selectedNoteId, setSelectedNoteId] = useState(null);
@@ -13,8 +13,7 @@ function App() {
 
       <Search onSearchResults={setSearchResults} />
       <BookList onSelectBook={setSelectedNoteId} />
-
-      {selectedNoteId && <NoteList noteId={selectedNoteId} />}
+      {selectedNoteId && <NoteList bookId={selectedNoteId} />}
 
       {searchResults.length > 0 && (
         <div>
